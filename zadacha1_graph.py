@@ -19,9 +19,9 @@ plt.axhline(y=0, color='gray', linestyle='dashed')
 
 #plt.fill_between([0, 0, 3,8], [0, 7, 5, 0], color='lavender')
 
-plt.arrow(0,0,  2.7,  2, head_width=0.4, head_length=0.8, fc='black', ec='black', label='вектор z')
-x1_green = np.linspace(-2, 3, 100)
-plt.plot(x1_green, (20-15 * x1_green)/21, linestyle='-.', color='green', label='перпендикуляр')
+plt.arrow(0,0,  1.4,  2, head_width=0.4, head_length=0.8, fc='black', ec='black', label='вектор z')
+x1_green = np.linspace(-2, 2, 100)
+plt.plot(x1_green, (-15 * x1_green)/21, linestyle='-.', color='green', label='перпендикуляр')
 
 plt.title('Задание 1')
 plt.grid(True)

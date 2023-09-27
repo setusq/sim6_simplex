@@ -18,17 +18,22 @@ print("Оптимальные значения переменных x:")
 for v in prob1.variables():
     print(v.name, "=", value(v))
 
-prob2 = LpProblem("LP Problem", LpMinimize)
+prob = LpProblem("LP Problem", LpMinimize)
 
-prob2 += 15*x1 + 21*x2 - 20
+x1 = LpVariable("x1", lowBound=0)
+x2 = LpVariable("x2", lowBound=0)
 
-prob2 += -7*x1 + 2*x2 >= 14
-prob2 += x1 +11*x2 <= 13
-prob2 += x1 +x2 <= 3
-prob2 += 4*x1 + 5*x2 >= 20
+# Изменим знак целевой функции для минимизации
+prob += 15 * x1 + 21 * x2 - 20, "Objective Function"
 
-prob2.solve()
-print("Минимальное значение функции: ", value(prob2.objective))
+prob += -7 * x1 + 2 * x2 >= 14
+prob += x1 + 11 * x2 <= 13
+prob += x1 + x2 <= 3
+prob += 4 * x1 + 5 * x2 >= 20
+
+prob.solve()
+
+print("Минимальное значение функции: ", value(prob.objective))
 print("Оптимальные значения переменных x:")
-for v in prob2.variables():
+for v in prob.variables():
     print(v.name, "=", value(v))
